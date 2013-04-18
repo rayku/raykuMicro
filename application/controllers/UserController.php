@@ -122,7 +122,7 @@ class UserController extends CI_Controller {
     }
     public function broadcast($room)
     {
-    	redirect('http://whiteboard.rayku.com/broadcast/'.$room.'/'.$secret, 'location');
+    	redirect('http://mathcentre.rayku.com:8080/broadcast/'.$room.'/'.$secret, 'location');
     }
 }
 
