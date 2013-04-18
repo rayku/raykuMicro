@@ -8,9 +8,9 @@
                         <a href=# class="logged-in-as">Logged in as samrock06</a> 
                         <div class="submenu" id="submenu">
                             <ul class="submenu-item">
-                                <li><a class="home" href=#><span class="raphael">L</span>Home</a></li>
-                                                        <li><a class="practice" href="http://whiteboard.rayku.com/standalone" target="_blank"><span class="raphael">b</span>Practice Whiteboard</a></li>
-                                                        <li><a class="broadcast" href=#><span class="raphael">Æ</span>Broadcast Session</a></li>
+                                <li><a class="home" href="'.$base_url.'"><span class="raphael">L</span>Home</a></li>
+                                <li><a class="practice" href="http://whiteboard.rayku.com/standalone" target="_blank"><span class="raphael">b</span>Practice Whiteboard</a></li>
+                                <li><a class="broadcast" href="'.$base_url.'startBroadcast"><span class="raphael">Æ</span>Broadcast Session</a></li>
                                 <li><a class="settings" href=#><span class="raphael">`</span>Settings</a></li>
                                 <li><a class="logout" href="'.$base_url.'logout"><span class="raphael">v</span>Logout</a></li>
 
@@ -67,7 +67,7 @@
         <div class="row user-profile">
             <div class="large-12 columns user-profile-top">
                 <h6><a href="#" title="Buy Rayku Points" class="rayku-points">0RP</a></h6>
-                <h5>samrock06</h5>
+                <h5><?php echo $tutor[0]['username'];?></h5>
             </div>
             <div class="large-3 columns user-profile-image">
                 <img src="<?php echo $base_url;?>images/profile_image_blank.jpg">
@@ -75,19 +75,19 @@
             <div class="large-9 columns user-profile-info">
                 <ul class="user-profile-items">
                     <li>
-                        <h4><span class="name edit">Sam Haruna</span> <span class="tutor-rating">4.3</span></h4>
+                        <h4><span class="name edit"><?php echo $tutor[0]['fname'];?> <?php echo $tutor[0]['lname'];?></span> <span class="tutor-rating">4.3</span></h4>
                     </li>
                     <li>
-                        <h5><span class="education edit">Undergraduate</span></h5>
+                        <h5><span class="education edit"><?php echo $tutor[0]['school_year'];?></span></h5>
                     </li>
                     <li>
-                        <span class="school edit">Dalhousie University</span>
+                        <span class="school edit"><?php echo $tutor[0]['school'];?></span>
                     </li>
                     <li>
-                        <span class="degree edit">Computer Science</span>
+                        <span class="degree edit"><?php echo $tutor[0]['degree'];?></span>
                     </li>
                     <li>
-                        <span>Specializes in </span> <span class="bio edit">Trigonometry, Algebra</span>
+                        <span>Specializes in </span> <span class="bio edit"><?php echo $tutor[0]['about'];?></span>
                     </li>
                     
                     <li>

@@ -43,6 +43,14 @@ class TutorModel extends CI_Model{
             return false;
         }
     }
+    public function getTutorByUsername($username){
+        $this->db->where("username", $username);
+        $query=$this->db->get("fos_user_user");
+
+        if($query->num_rows() > 0){
+            return $query->result_array();
+        }
+    }
     public function startBroadcast(){
         $data = array(
             'tutor_id' => $this->session->userdata('tutor_id'),

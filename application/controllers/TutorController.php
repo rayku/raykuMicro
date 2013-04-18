@@ -35,9 +35,16 @@ class TutorController extends CI_Controller {
   			$this->data['logged_in'] = false;
   		}
   		//load tutors public profile
-		$this->load->view('user/header', $this->data);
-  		$this->load->view('user/tutor_public', $this->data);
-  		$this->load->view('user/footer', $this->data);
+  		$username = $this->uri->segment(2);
+  		$this->data['tutor'] = $this->TutorModel->getTutorByUsername($username);
+  		if ($this->data['tutor'][0]['tutor_id'] == ""){
+  			redirect('/', 'location');
+  		}
+  		else{
+  			$this->load->view('user/header', $this->data);
+  			$this->load->view('user/tutor_public', $this->data);
+  			$this->load->view('user/footer', $this->data);
+  		}
 	}
 	public function startBroadcast()
 	{

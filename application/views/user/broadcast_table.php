@@ -31,8 +31,14 @@
               echo '<td width="118px">'.$item['username'].'</td>';
               echo '<td>'.$item['start'].'</td>';
               echo '<td width="130px">'.$item['end'].'</td>';
-              echo '<td data-status="online">Active</td>';
-              echo '<td><a href="http://whiteboard.rayku.com/broadcast/'.$item['broadcast_id'].'">Join Broadcast</a></td>';
+              if($item['end']!=""){
+                echo '<td data-status="online">Ended</td>';
+                echo '<td><a href="http://whiteboard.rayku.com/broadcast/'.$item['broadcast_id'].'">View Recording</a></td>';
+              }
+              else{
+                echo '<td data-status="online">Active</td>';
+                echo '<td><a href="http://whiteboard.rayku.com/broadcast/'.$item['broadcast_id'].'">Join Broadcast</a></td>';
+              } 
               echo '</tr>';
             }
           }
