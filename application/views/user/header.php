@@ -35,6 +35,7 @@
 	<script src="<?php echo $base_url;?>javascripts/jquery_poll/lib/jquery.smart-poll.js"></script>
 	<script type="text/javascript">
 	window.setInterval(function(){
+		/*
 		$.get('/app_dev.php/sessions', function(response, status){
 			jQuery.each(response, function() {
 				var current_messages = parseInt($('.notif-count').html());
@@ -65,5 +66,6 @@
 			})
 		})
 	}, 5000);
+	*/
 	</script>
 </head>

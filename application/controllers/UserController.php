@@ -36,6 +36,7 @@ class UserController extends CI_Controller {
   			else{
   				$this->data['isTutor'] = false;
   			}
+  			$this->data['user'] = $this->UserModel->getUser($this->session->userdata('user_id'));
   			$this->data['logged_in'] = true;
   			$this->load->view('user/header', $this->data);
   			$this->load->view('user/body', $this->data);

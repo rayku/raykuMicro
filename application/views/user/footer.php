@@ -200,13 +200,11 @@ $(document).ready(function(){
 	</div>
 </div>
 
-
-
 <script type="text/javascript">
 //DO NOT BREAK THIS JAVASCRIPT UP
 $(document).ready(function(){
     //Submit Question
-    $('input[name="aSubmit"]').click(function(event){
+    $('input[name="aSubmit"]').one('click', function(event){
     	event.preventDefault();
     	$('.tutor-list').html('Loading ... ');
         $.ajax({

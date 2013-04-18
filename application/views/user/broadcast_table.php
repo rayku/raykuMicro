@@ -27,10 +27,10 @@
             foreach($broadcast_sessions as $item){
               echo '<tr>';
               echo '<td>'.$item['broadcast_id'].'</td>';
-              echo '<td>'.$item['fname']." ".$item['lname'].'</td>';
-              echo '<td>'.$item['username'].'</td>';
+              echo '<td width="130px">'.$item['fname']." ".$item['lname'].'</td>';
+              echo '<td width="118px">'.$item['username'].'</td>';
               echo '<td>'.$item['start'].'</td>';
-              echo '<td>'.$item['end'].'</td>';
+              echo '<td width="130px">'.$item['end'].'</td>';
               echo '<td data-status="online">Active</td>';
               echo '<td><a href="http://whiteboard.rayku.com/broadcast/'.$item['broadcast_id'].'">Join Broadcast</a></td>';
               echo '</tr>';

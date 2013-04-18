@@ -3,7 +3,7 @@
                             <a href="/app_dev.php/dashboard" id="logo"><img src="<?php echo $base_url; ?>images/logo.png" alt="" /></a>
             	<nav>
                 <a href=# class="notification" data-reveal-id="connectNotifModal"><span class="raphael">[</span><span class="notif-count">0</span></a>
-                <a href=# class="logged-in-as">Logged in as samrock06</a> 
+                <a href=# class="logged-in-as">Logged in as <?php echo $user[0]["username"];?></a> 
                 <div class="submenu" id="submenu">
                     <ul class="submenu-item">
                         <li><a class="home" href=#><span class="raphael">L</span>Home</a></li>
@@ -154,7 +154,7 @@ $(document).ready(function(){
         <div class="row user-profile">
             <div class="large-12 columns user-profile-top">
                 <h6><a href="#" title="Buy Rayku Points" class="rayku-points">0RP</a></h6>
-                <h5>samrock06</h5>
+                <h5><?php echo $user[0]["username"];?></h5>
             </div>
             <div class="large-12 columns user-rayku-points">
                 <form class="buy-rayku-points custom" name="buy_rayku_points" action="/paypal.php" method="post">
@@ -189,57 +189,57 @@ $(document).ready(function(){
                         <a href="#" class="raphael edit-tool">></a>
                         <form class="user-profile-edit-form" name="name">
                             <label>Name</label>
-                            <input type="text" placeholder="Sam" name="current_first_name" class="form-field">
-                            <input type="text" placeholder="Haruna" name="current_last_name" class="form-field">
+                            <input type="text" placeholder="<?php echo $user[0]["fname"];?>" name="current_first_name" class="form-field">
+                            <input type="text" placeholder="<?php echo $user[0]["lname"];?>" name="current_last_name" class="form-field">
                             <input type="submit" class="bbutton" value="Save">
                             <a href=# class="close-edit">x</a>
                         </form>
-                        <h4><span class="name edit">Sam Haruna</span></h4>
+                        <h4><span class="name edit"><?php echo $user[0]["fname"];?> <?php echo $user[0]["lname"];?></span></h4>
                     </li>
                     <li>
                         <a href="#" class="raphael edit-tool">></a>
                         <form class="user-profile-edit-form" name="education">
                             <label>Education</label>
-                            <input type="text" placeholder="Undergraduate" name="current_grade" class="form-field">
+                            <input type="text" placeholder="<?php echo $user[0]["school_year"];?>" name="current_grade" class="form-field">
                             <input type="submit" class="bbutton" value="Save">
                             <a href=# class="close-edit">x</a>
                         </form>
-                        <h5><span class="education edit">Undergraduate</span></h5>
+                        <h5><span class="education edit"><?php echo $user[0]["school_year"];?></span></h5>
                     </li>
                     <li>
                         <a href="#" class="raphael edit-tool">></a>
                         <form class="user-profile-edit-form" name="school">
                             <label>University</label>
-                            <input type="text" placeholder="Dalhousie University" name="current_school" class="form-field">
+                            <input type="text" placeholder="<?php echo $user[0]["school"];?>" name="current_school" class="form-field">
                             <input type="submit" class="bbutton" value="Save">
                             <a href=# class="close-edit">x</a>
                         </form>
-                        <span>School:</span> <span class="school edit">Dalhousie University</span>
+                        <span>School:</span> <span class="school edit"><?php echo $user[0]["school"];?></span>
                     </li>
                     <li>
                         <a href="#" class="raphael edit-tool">></a>
                         <form class="user-profile-edit-form" name="degree">
                             <label>Degree</label>
-                            <input type="text" placeholder="Computer Science" name="current_degree" class="form-field">
+                            <input type="text" placeholder="<?php echo $user[0]["degree"];?>" name="current_degree" class="form-field">
                             <input type="submit" class="bbutton" value="Save">
                             <a href=# class="close-edit">x</a>
                         </form>
-                        <span>Degree:</span> <span class="degree edit">Computer Science</span>
+                        <span>Degree:</span> <span class="degree edit"><?php echo $user[0]["degree"];?></span>
                     </li>
                                         <li>
                         <a href="#" class="raphael edit-tool">></a>
                         <form class="user-profile-edit-form" name="bio">
                             <label>Specialty</label>
-                            <textarea class="form-field" name="current_bio">Trigonometry, Algebra</textarea>
+                            <textarea class="form-field" name="current_bio"><?php echo $user[0]["about"];?></textarea>
                             <input type="submit" class="bbutton" value="Save">
                             <a href=# class="close-edit">x</a>
                         </form>
-                        <span>Specialty:</span> <span class="bio edit">Trigonometry, Algebra</span>
+                        <span>Specialty:</span> <span class="bio edit"><?php echo $user[0]["about"];?></span>
                     </li>
                     <li>
                         <?php
                             if($isTutor){
-                                echo '<span class="tutor edit"><a class="public-tutor-link" href="'.$base_url.'profile/samrock06"><span class="raphael">7</span>Tutor Public Profile</a></span>';
+                                echo '<span class="tutor edit"><a class="public-tutor-link" href="'.$base_url.'profile/'.$user[0]["username"].'"><span class="raphael">7</span>Tutor Public Profile</a></span>';
                             }
                         ?>
                     </li>
@@ -314,7 +314,14 @@ $(document).ready(function(){
               <form class="custom">
                 <div class="row">
                   <div class="large-3 columns ask-q">
-                    <h5>Find suitable tutor for</h5>
+                    <?php
+                        if($isTutor){
+                            echo "<h5>Tutor Profile</h5>";
+                        }
+                        else{
+                            echo "<h5>Profile</h5>";
+                        }
+                    ?>
                   </div>
                   <div class="large-3 columns school">
                     <!--
@@ -395,7 +402,7 @@ $(document).ready(function(){
       
     <!--Tutor List-->
     <div class="row tutor-list">
-        
+     Loading ...
     </div>
   </div>
   <!--End Tutor List-->

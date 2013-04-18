@@ -50,6 +50,14 @@ class UserModel extends CI_Model{
         }
         return false;
     }
+    public function getUser($id){
+        $this->db->where("id", $id);
+        $query=$this->db->get("fos_user_user");
+
+        if($query->num_rows() > 0){
+            return $query->result_array();
+        }
+    }
     public function registerUser($username, $email, $password)
     {
         $data = array(
