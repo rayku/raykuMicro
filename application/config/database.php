@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'sqlroot';
-$db['default']['database'] = 'rayku_db';
+$db['default']['username'] = 'rayku_db';
+$db['default']['password'] = 'UthmCRtaum34qpGL';
+$db['default']['database'] = 'rayku_micro';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
