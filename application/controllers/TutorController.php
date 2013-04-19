@@ -54,6 +54,7 @@ class TutorController extends CI_Controller {
 	public function sessions()
 	{
 		$broadcastSessions = $this->TutorModel->activeBroadcasts();
+		//if no broadcast sessions
 		if(!$broadcastSessions){
 			$this->data['broadcast_sessions'] = false;
 			$output = $this->load->view('user/broadcast_table', $this->data, true);
