@@ -9,7 +9,7 @@
                         <li><a class="home" href=#><span class="raphael">L</span>Home</a></li>
                         <?php
                             if($isTutor){
-                                echo '<li><a class="practice" href="http://whiteboard.rayku.com/standalone" target="_blank"><span class="raphael">b</span>Practice Whiteboard</a></li>';
+                                echo '<li><a class="practice" href="http://mathcentre.rayku.com:8080/standalone" target="_blank"><span class="raphael">b</span>Practice Whiteboard</a></li>';
                                 echo '<li><a class="broadcast" href="'.$base_url.'startBroadcast"><span class="raphael">Æ</span>Broadcast Session</a></li>';
                             }
                         ?>
