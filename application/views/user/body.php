@@ -59,19 +59,19 @@
         <!--User Settings-->    
         <div class="row user-settings">
     <div class="large-12 columns user-settings-top">
-        <h5>samrock06</h5>
+        <h5><?php echo $user[0]["username"];?></h5>
     </div>
     <div class="large-3 columns ask-q">
         <h5>Settings</h5>
     </div>
     <div class="large-9 columns settings">
-        <form id="usersettingsForm" class="user-setting" method="POST" action="/app_dev.php/users/3/profile">
+        <form id="usersettingsForm" class="user-setting" method="POST" action="<?php echo $base_url;?>saveSettings">
             <div class="row">
                 <div class="large-3 columns">
                     <label>Change Email</label>
                 </div>
                 <div class="large-8 columns">
-                    <input type="email" id="email" name="email" required="required" value="samrock06@gmail.com" />
+                    <input type="email" id="email" name="email" value="<?php echo $user[0]["email"];?>" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -82,7 +82,7 @@
                     <label>Change Username</label>
                 </div>
                 <div class="large-8 columns">
-                    <input type="text" id="username" name="username" required="required" maxlength="255" value="samrock06" />
+                    <input type="text" id="username" name="username" maxlength="255" value="<?php echo $user[0]["username"];?>" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -93,7 +93,7 @@
                     <label>Old Password</label>
                 </div>
                 <div class="large-8 columns">
-                	<input type="password" id="current_password" name="current_password" required="required"    placeholder="Current Password" />
+                	<input type="password" id="current_password" name="password" placeholder="Current Password" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -104,7 +104,7 @@
                     <label>New Password</label>
                 </div>
                 <div class="large-8 columns">
-					<input type="password" id="plainPassword_first" name="plainPassword[first]" required="required"    placeholder="New Password" />
+					<input type="password" id="plainPassword_first" name="new_password"  placeholder="New Password" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -115,7 +115,7 @@
                     <label>Confirm Password</label>
                 </div>
                 <div class="large-8 columns">
-					<input type="password" id="plainPassword_second" name="plainPassword[second]" required="required"    placeholder="Password Again" />
+					<input type="password" id="plainPassword_second" name="confirm_new_password" placeholder="Password Again" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;

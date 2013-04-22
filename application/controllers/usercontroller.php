@@ -105,6 +105,21 @@ class UserController extends CI_Controller {
 			}
 		}
 	}
+	public function saveSettings()
+	{
+		$email = $this->input->post('email');
+		$username = $this->input->post('username');
+		$current_password = $this->input->post('current_password');
+		$new_password = $this->input->post('new_password');
+
+		$settings = $this->UserModel->saveSettings($this->session->userdata('user_email'), $email, $username, $current_password, $new_password);
+		if($settings){
+			redirect('/', 'location');
+		}
+		else{
+			redirect('/?savesettings=fail', 'location');
+		}
+	}
 	public function editProfile()
 	{
 		$fname = $this->input->post('first_name');
@@ -114,7 +129,7 @@ class UserController extends CI_Controller {
 		$degree = $this->input->post('degree');
 		$about = $this->input->post('bio');
 
-		$save = $this->UserModel->editUser($this->session->userdata('user_email'), $fname, $lname, $school, $school_year, $degree, $about);
+		$save = $this->UserModel->editUser($this->session->userdata('user_id'), $fname, $lname, $school, $school_year, $degree, $about);
 		redirect('/', 'location');
 	}
 	public function logout()
