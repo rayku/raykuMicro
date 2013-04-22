@@ -2,7 +2,7 @@
         <div class="inside">
                             <a href="/app_dev.php/dashboard" id="logo"><img src="<?php echo $base_url; ?>images/logo.png" alt="" /></a>
             	<nav>
-                <a href=# class="notification" data-reveal-id="connectNotifModal"><span class="raphael">[</span><span class="notif-count">0</span></a>
+                <a href=# class="notification"><span class="raphael">[</span><span class="notif-count">0</span></a>
                 <a href=# class="logged-in-as">Logged in as <?php echo $user[0]["username"];?></a> 
                 <div class="submenu" id="submenu">
                     <ul class="submenu-item">
