@@ -24,16 +24,16 @@
     <div class="dashboard">
     <!--Sidebar-->
 		<div class="large-3 columns sidebar">
-    		<div class="row tutor-sidebar">
-                <div class="small-12 columns tutor-label">
-                    <h5>Tutor</h5>
-                    <div class="tutor-switch">
-                        <a href=# name="toggle" id="tutorOn" data="isTutor"><span>On</span></a>
-                        <a href=# name="toggle" id="tutorOff" data=""><span>Off</span></a>
-                    </div>
+    		  <div class="row tutor-sidebar" style="display:none;">
+                    <div class="small-12 columns tutor-label">
+                        <h5>Tutor</h5>
+                        <div class="tutor-switch">
+                            <a href=# name="toggle" id="tutorOn" data="isTutor"><span>On</span></a>
+                            <a href=# name="toggle" id="tutorOff" data=""><span>Off</span></a>
+                        </div>
+    		       </div>
     		    </div>
-    		</div>
-    			            <div class="row tutor-status-bar">
+    		      <div class="row tutor-status-bar">
 	                <div class="small-12 columns tutor-status">
 	                    <h5>Status <span>
 	                    Online
@@ -42,12 +42,14 @@
 	            </div>
 	        
             <div class="row tutor-selected">
+                <!--
                 <h5><span class="tutor-count">0</span> <span class="tright">Tutor(s) Selected</span> </h5>
                 <div class="small-12 columns">
                     <ol id="selectedTutors">
                     </ol>
                     <a href=# class="clear-tutors">Clear All</a>
                 </div>
+                -->
             </div>
 		</div>
     <!--End Sidebar-->
@@ -374,6 +376,7 @@ $(document).ready(function(){
                   </div>
 
                   <div class="large-3 columns category">
+                    <!--
                     <select id="categorySelect" class="medium" name="category">
                       <option>Choose Category</option>
                       <option value="General Math">General Math</option>
@@ -385,11 +388,12 @@ $(document).ready(function(){
                       <option value="Statistics">Statistics & Probability</option>
                       <option value="Advanced Math">Advanced Math</option>
                     </select>
+                    -->
                   </div>
 
                   <div class="large-12 columns question-container">
                     <div class="input-container">
-                      <input type="text" placeholder="What is your question? Or view online tutors" name="ask" id="base_question">
+                      <input type="text" placeholder="What is your question? Or view online tutors" name="ask" id="base_question" disabled>
                     </div>
                     <input type="submit" class="bbutton" value="View Broadcast Sessions" name="aSubmit">
                   </div>
