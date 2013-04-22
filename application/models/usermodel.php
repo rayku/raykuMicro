@@ -58,7 +58,7 @@ class UserModel extends CI_Model{
             return $query->result_array();
         }
     }
-    public function editUser($username, $fname=NULL, $lname=NULL, $school=NULL, $school_year=NULL, $degree=NULL, $about=NULL)
+    public function editUser($email, $fname=NULL, $lname=NULL, $school=NULL, $school_year=NULL, $degree=NULL, $about=NULL)
     {
         $data = array(
             'fname' => $fname,
@@ -68,9 +68,10 @@ class UserModel extends CI_Model{
             'degree' => $degree,
             'about' => $about
         );
+        $this->db->where('email', $email);
         $this->db->update('fos_user_user', $data); 
 
-        $this->db->where("username", $username);
+        $this->db->where("email", $email);
         $query=$this->db->get("fos_user_user");
 
         if($query->num_rows() > 0){

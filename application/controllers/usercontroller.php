@@ -114,7 +114,7 @@ class UserController extends CI_Controller {
 		$degree = $this->input->post('degree');
 		$about = $this->input->post('bio');
 
-		$save = $this->UserModel->editUser($this->session->userdata('user_name'), $fname, $lname, $school, $school_year, $degree, $about);
+		$save = $this->UserModel->editUser($this->session->userdata('user_email'), $fname, $lname, $school, $school_year, $degree, $about);
 		redirect('/', 'location');
 	}
 	public function logout()
