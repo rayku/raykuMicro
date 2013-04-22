@@ -58,12 +58,47 @@ class UserModel extends CI_Model{
             return $query->result_array();
         }
     }
+    public function editUser($username, $fname=NULL, $lname=NULL, $school=NULL, $school_year=NULL, $degree=NULL, $about=NULL)
+    {
+        $data = array(
+            'fname' => $fname,
+            'lname' => $lname,
+            'school' => $school,
+            'school_year' => $school_year,
+            'degree' => $degree,
+            'about' => $about
+        );
+        $this->db->update('fos_user_user', $data); 
+
+        $this->db->where("username", $username);
+        $query=$this->db->get("fos_user_user");
+
+        if($query->num_rows() > 0){
+            foreach($query->result() as $rows)
+            {
+                //add all data to session
+                $sessionData = array(
+                    'first_name'     => $rows->fname,
+                    'last_name'     => $rows->lname,
+                );
+            }
+            $this->session->set_userdata($sessionData);
+            return true;
+        }
+        return false;
+    }
     public function registerUser($username, $email, $password)
     {
         $data = array(
             'username' => $username,
             'email' => $email,
-            'password' => $password
+            'password' => $password,
+            'fname' => 'firstname',
+            'lname' => 'lastname',
+            'school' => 'school',
+            'school_year' => 'e.g. Undegraduate',
+            'degree' => 'e.g. Maths',
+            'about' => 'e.g. Trigonometry'
             //'password' => $this->encrypt->sha1('password')
         );
         $this->db->insert('fos_user_user', $data); 

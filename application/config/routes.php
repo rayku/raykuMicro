@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "pagecontroller";
-$route['^(register|login|logout)(/:any)?$'] = 'usercontroller/$0';
+$route['^(register|login|logout|editProfile)(/:any)?$'] = 'usercontroller/$0';
 $route['^(tutor|profile|startBroadcast|sessions)(/:any)?$'] = 'tutorcontroller/$0';
 $route['404_override'] = '';
 

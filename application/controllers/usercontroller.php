@@ -105,6 +105,18 @@ class UserController extends CI_Controller {
 			}
 		}
 	}
+	public function editProfile()
+	{
+		$fname = $this->input->post('first_name');
+		$lname = $this->input->post('last_name');
+		$school = $this->input->post('school');
+		$school_year = $this->input->post('grade');
+		$degree = $this->input->post('degree');
+		$about = $this->input->post('bio');
+
+		$save = $this->UserModel->editUser($this->session->userdata('user_name'), $fname, $lname, $school, $school_year, $degree, $about);
+		redirect('/', 'location');
+	}
 	public function logout()
     {
     	//unset session variables
