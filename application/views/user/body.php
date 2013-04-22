@@ -27,9 +27,7 @@
             <!--Ask Form-->
             <div class="large-12 columns ask">
               <form class="custom">
-                <div class="row">
                    <input type="submit" class="bbutton" value="View Broadcast Sessions" name="aSubmit">
-                </div>
               </form>
             </div>
             <!--End Ask Form-->
