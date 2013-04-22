@@ -23,31 +23,11 @@
     <div class="dashboard">
     <!--Main Content-->
 	<div class="large-9 columns main-content">
-        <!--User Settings-->    
-        <div class="row user-settings">
-    </div>
-</div>
-
         <div class="row user-profile">
             <!--Ask Form-->
             <div class="large-12 columns ask">
               <form class="custom">
-                <div class="row">
-                  <div class="large-3 columns ask-q">
-                    <?php
-                        if($isTutor){
-                            echo "<h5>Tutor Profile</h5>";
-                        }
-                        else{
-                            echo "<h5>Profile</h5>";
-                        }
-                    ?>
-                  </div>
-
-                  <div class="large-12 columns question-container">
-                    <input type="submit" class="bbutton" value="View Broadcast Sessions" name="aSubmit">
-                  </div>
-                </div>
+                   <input type="submit" class="bbutton" value="View Broadcast Sessions" name="aSubmit">
               </form>
             </div>
             <!--End Ask Form-->
