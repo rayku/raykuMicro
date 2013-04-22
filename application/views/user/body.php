@@ -247,7 +247,7 @@ $(document).ready(function(){
                 <ul class="user-profile-buttons">
                     <li><a href=# class="bbutton edit-button"><span class="raphael">></span>Edit Profile</a></li>
                     <li>
-                      <form name="master-form" method="post" class="user-profile-master-form" action="/app_dev.php/users/3">
+                      <form name="master-form" method="post" class="user-profile-master-form" action="<?php echo $base_url;?>editProfile">
                         <input type="text" id="first_name" name="first_name" required="required" maxlength="255" value="Sam" />
                         <input type="text" id="last_name" name="last_name" required="required" maxlength="255" value="Haruna" />
                         <input type="text" id="school" name="school" required="required" maxlength="255" value="Dalhousie University" />
@@ -295,9 +295,9 @@ $(document).ready(function(){
                 });
 
                 //When done profile editing, submit the form. Should be done via Ajax
-                $('form.user-profile-master-form').ajaxForm(function() { 
+                /*$('form.user-profile-master-form').ajaxForm(function() { 
                 	valarr = [];
-                });
+                });*/
 
                 //slide down rayku points form
                 $('.rayku-points').click(function(event){
