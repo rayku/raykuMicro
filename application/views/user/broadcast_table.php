@@ -33,11 +33,11 @@
               echo '<td width="130px">'.$item['end'].'</td>';
               if($item['end']!=""){
                 echo '<td data-status="online">Ended</td>';
-                echo '<td><a href="http://mathcentre.rayku.com:8080/broadcast/'.$item['broadcast_id'].'">View Recording</a></td>';
+                echo '<td><a href="http://whiteboard.rayku.com/broadcast/'.$item['broadcast_id'].'">View Recording</a></td>';
               }
               else{
                 echo '<td data-status="online">Active</td>';
-                echo '<td><a href="http://mathcentre.rayku.com:8080/broadcast/'.$item['broadcast_id'].'">Join Broadcast</a></td>';
+                echo '<td><a href="http://whiteboard.rayku.com/broadcast/'.$item['broadcast_id'].'">Join Broadcast</a></td>';
               } 
               echo '</tr>';
             }

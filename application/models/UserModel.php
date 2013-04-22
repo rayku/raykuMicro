@@ -61,12 +61,14 @@ class UserModel extends CI_Model{
     public function registerUser($username, $email, $password)
     {
         $data = array(
-            'password' => $this->encrypt->sha1('password')
+            'username' => $username,
+            'email' => $email,
+            'password' => $password
+            //'password' => $this->encrypt->sha1('password')
         );
-        $this->db->where("email", "user@rayku.com");
-        $this->db->update('fos_user_user', $data);
+        $this->db->insert('fos_user_user', $data); 
 
-        $this->db->where("email", "user@rayku.com");
+        $this->db->where("email", $email);
         $query=$this->db->get("fos_user_user");
 
         if($query->num_rows() > 0){

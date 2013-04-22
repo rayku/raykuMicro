@@ -92,7 +92,8 @@ class UserController extends CI_Controller {
 			//get user email and password combination
 			$username = $this->input->post('username');
 			$email = $this->input->post('email');
-			$password = $this->encrypt->sha1($this->input->post('password'));
+			$password = $this->input->post('password');
+			//$password = $this->encrypt->sha1($this->input->post('password'));
 			//check email, password combo against DB
 			$register = $this->UserModel->registerUser($username, $email, $password);
 			if($register){
@@ -122,7 +123,7 @@ class UserController extends CI_Controller {
     }
     public function broadcast($room)
     {
-    	redirect('http://mathcentre.rayku.com:8080/broadcast/'.$room.'/'.$secret, 'location');
+    	redirect('http://whiteboard.rayku.com/broadcast/'.$room.'/'.$secret, 'location');
     }
 }
 
