@@ -49,7 +49,7 @@ class TutorController extends CI_Controller {
 	public function startBroadcast()
 	{
 		$variables = $this->TutorModel->startBroadcast();
-		redirect('http://whiteboard.rayku.com/broadcast/'.$variables['room'].'/'.$variables['secret'], 'location');
+		redirect('http://whiteboard.rayku.com:8080/broadcast/'.$variables['room'].'/'.$variables['secret'], 'location');
 	}
 	public function sessions()
 	{
