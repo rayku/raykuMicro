@@ -58,7 +58,7 @@ class UserModel extends CI_Model{
             return $query->result_array();
         }
     }
-    public function editUser($username, $fname=NULL, $lname=NULL, $school=NULL, $school_year=NULL, $degree=NULL, $about=NULL)
+    public function editUser($id, $fname=NULL, $lname=NULL, $school=NULL, $school_year=NULL, $degree=NULL, $about=NULL)
     {
         $data = array(
             'fname' => $fname,
@@ -68,9 +68,10 @@ class UserModel extends CI_Model{
             'degree' => $degree,
             'about' => $about
         );
+        $this->db->where('id', $id);
         $this->db->update('fos_user_user', $data); 
 
-        $this->db->where("username", $username);
+        $this->db->where("email", $email);
         $query=$this->db->get("fos_user_user");
 
         if($query->num_rows() > 0){
@@ -86,6 +87,32 @@ class UserModel extends CI_Model{
             return true;
         }
         return false;
+    }
+    public function saveSettings($current_email, $email=NULL, $username=NULL, $current_password=NULL, $new_password=NULL)
+    {   
+        $data = array(
+            'email' => $email,
+            'username' => $username,
+            'password' => $new_password,
+        );
+        $this->db->where('email', $current_email);
+        $this->db->update('fos_user_user', $data); 
+
+        $this->db->where("email", $email);
+        $query=$this->db->get("fos_user_user");
+
+        if($query->num_rows() > 0){
+            foreach($query->result() as $rows)
+            {
+                //add all data to session
+                $sessionData = array(
+                    'user_name'   =>$rows->username,
+                    'user_email'    => $rows->email,
+                );
+            }
+            $this->session->set_userdata($sessionData);
+            return true;
+        }
     }
     public function registerUser($username, $email, $password)
     {

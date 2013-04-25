@@ -2,7 +2,7 @@
         <div class="inside">
                             <a href="/app_dev.php/dashboard" id="logo"><img src="<?php echo $base_url; ?>images/logo.png" alt="" /></a>
             	<nav>
-                <a href=# class="notification" data-reveal-id="connectNotifModal"><span class="raphael">[</span><span class="notif-count">0</span></a>
+                <a href=# class="notification"><span class="raphael">[</span><span class="notif-count">0</span></a>
                 <a href=# class="logged-in-as">Logged in as <?php echo $user[0]["username"];?></a> 
                 <div class="submenu" id="submenu">
                     <ul class="submenu-item">
@@ -24,16 +24,16 @@
     <div class="dashboard">
     <!--Sidebar-->
 		<div class="large-3 columns sidebar">
-    		<div class="row tutor-sidebar">
-                <div class="small-12 columns tutor-label">
-                    <h5>Tutor</h5>
-                    <div class="tutor-switch">
-                        <a href=# name="toggle" id="tutorOn" data="isTutor"><span>On</span></a>
-                        <a href=# name="toggle" id="tutorOff" data=""><span>Off</span></a>
-                    </div>
+    		  <div class="row tutor-sidebar" style="display:none;">
+                    <div class="small-12 columns tutor-label">
+                        <h5>Tutor</h5>
+                        <div class="tutor-switch">
+                            <a href=# name="toggle" id="tutorOn" data="isTutor"><span>On</span></a>
+                            <a href=# name="toggle" id="tutorOff" data=""><span>Off</span></a>
+                        </div>
+    		       </div>
     		    </div>
-    		</div>
-    			            <div class="row tutor-status-bar">
+    		      <div class="row tutor-status-bar">
 	                <div class="small-12 columns tutor-status">
 	                    <h5>Status <span>
 	                    Online
@@ -42,12 +42,14 @@
 	            </div>
 	        
             <div class="row tutor-selected">
+                <!--
                 <h5><span class="tutor-count">0</span> <span class="tright">Tutor(s) Selected</span> </h5>
                 <div class="small-12 columns">
                     <ol id="selectedTutors">
                     </ol>
                     <a href=# class="clear-tutors">Clear All</a>
                 </div>
+                -->
             </div>
 		</div>
     <!--End Sidebar-->
@@ -57,19 +59,19 @@
         <!--User Settings-->    
         <div class="row user-settings">
     <div class="large-12 columns user-settings-top">
-        <h5>samrock06</h5>
+        <h5><?php echo $user[0]["username"];?></h5>
     </div>
     <div class="large-3 columns ask-q">
         <h5>Settings</h5>
     </div>
     <div class="large-9 columns settings">
-        <form id="usersettingsForm" class="user-setting" method="POST" action="/app_dev.php/users/3/profile">
+        <form id="usersettingsForm" class="user-setting" method="POST" action="<?php echo $base_url;?>saveSettings">
             <div class="row">
                 <div class="large-3 columns">
                     <label>Change Email</label>
                 </div>
                 <div class="large-8 columns">
-                    <input type="email" id="email" name="email" required="required" value="samrock06@gmail.com" />
+                    <input type="email" id="email" name="email" value="<?php echo $user[0]["email"];?>" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -80,7 +82,7 @@
                     <label>Change Username</label>
                 </div>
                 <div class="large-8 columns">
-                    <input type="text" id="username" name="username" required="required" maxlength="255" value="samrock06" />
+                    <input type="text" id="username" name="username" maxlength="255" value="<?php echo $user[0]["username"];?>" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -91,7 +93,7 @@
                     <label>Old Password</label>
                 </div>
                 <div class="large-8 columns">
-                	<input type="password" id="current_password" name="current_password" required="required"    placeholder="Current Password" />
+                	<input type="password" id="current_password" name="password" placeholder="Current Password" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -102,7 +104,7 @@
                     <label>New Password</label>
                 </div>
                 <div class="large-8 columns">
-					<input type="password" id="plainPassword_first" name="plainPassword[first]" required="required"    placeholder="New Password" />
+					<input type="password" id="plainPassword_first" name="new_password"  placeholder="New Password" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -113,7 +115,7 @@
                     <label>Confirm Password</label>
                 </div>
                 <div class="large-8 columns">
-					<input type="password" id="plainPassword_second" name="plainPassword[second]" required="required"    placeholder="Password Again" />
+					<input type="password" id="plainPassword_second" name="confirm_new_password" placeholder="Password Again" />
                 </div>
                 <div class="large-1 columns">
                     &nbsp;
@@ -374,6 +376,7 @@ $(document).ready(function(){
                   </div>
 
                   <div class="large-3 columns category">
+                    <!--
                     <select id="categorySelect" class="medium" name="category">
                       <option>Choose Category</option>
                       <option value="General Math">General Math</option>
@@ -385,11 +388,12 @@ $(document).ready(function(){
                       <option value="Statistics">Statistics & Probability</option>
                       <option value="Advanced Math">Advanced Math</option>
                     </select>
+                    -->
                   </div>
 
                   <div class="large-12 columns question-container">
                     <div class="input-container">
-                      <input type="text" placeholder="What is your question? Or view online tutors" name="ask" id="base_question">
+                      <input type="text" placeholder="What is your question? Or view online tutors" name="ask" id="base_question" disabled>
                     </div>
                     <input type="submit" class="bbutton" value="View Broadcast Sessions" name="aSubmit">
                   </div>
