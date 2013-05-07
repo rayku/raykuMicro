@@ -2,3 +2,6 @@ javascripts/jquery_form*
 javascripts/jquery_poll*
 applications/config/config.php
 applications/config/database.php
+.buildpath
+.project
+.settings/
