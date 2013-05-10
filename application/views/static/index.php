@@ -1,103 +1,84 @@
 <?php echo doctype('html5');?>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-		<meta charset="utf-8" />
-	    <title><?=$title;?></title>
-	    <?php echo link_tag('stylesheets/normalize.css')."\n";?>
-  		<?php echo link_tag('stylesheets/foundation.min.css')."\n";?>
-		<?php echo link_tag('stylesheets/style.css')."\n";?>
-		<?php echo link_tag('stylesheets/animation.css')."\n";?>
-		    
-	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	    <script src="<?php echo $base_url;?>javascripts/jquery_form/jquery.form.js"></script>
-	    <script src="<?php echo $base_url;?>javascripts/vendor/custom.modernizr.js"></script>
-	    <script src="<?php echo $base_url;?>javascripts/global.js" type="text/javascript"></script>
-	    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,600" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-	    <header>
-        <div class="inside">
-                        	<a href="<?php echo $base_url;?>" id="logo"><img src="<?php echo $base_url;?>images/logo.png" alt="" /></a>
-	            <nav>
-	                <a href="#" class="ask-login-button" data-reveal-id="loginModal">Login</a>
-	                <a href="#" class="signup-user">Signup</a>
-	                <a href="<?php echo $base_url;?>become">Become a Tutor</a>
-	            </nav>
-	                </div>
-    	</header>
+<?php echo $header; ?>
+<body>
+	<script>
+	$(document).ready(function (){
+		$('.signup-user').click(function (event){
+			event.preventDefault();
+		});
+	});
+	</script>
+    <?php echo $navigation;?>
+
+	<div id="intro" class="v1">
+		<div class="inside">
+		<div class="left">
+			<h1>Instant Math Tutoring</h1>
+			<h2>Connect with a live online tutor, over a beautiful &amp; interactive whiteboard, whenever you need help. Your first session is free!</h2>
+		<?php echo form_open('usercontroller/register')."\n";?>
+		<p>
+			<input type="text" class="ask" placeholder="Describe what you need help with..." />
+			
+			<input class="bbutton" type="submit" value="Ask" />
+		</p>
+		<div id="signup-ask">
+			<div class="head"><a href="#" class="close ask-login-button">x</a><span>Please provide account information in order to continue</span> <a href="#" data-reveal-id="loginModal" class="right ask-login-button">Already have an account</a><div class="clear"></div></div>
+			<div class="row signup-form">
+				<div class="large-6 columns">
+		        	<input type="text" id="fos_user_registration_form_username" name="username" required="required" maxlength="255"    placeholder="Username" />
+		        	
+		      	</div>
+		      	<div class="large-6 columns">
+		        	<input type="email" id="fos_user_registration_form_email" name="email" required="required"    placeholder="E-mail" />
+		        	
+		      	</div>
+		      	<div class="large-6 columns">
+		      		
+		        	<input type="password" id="fos_user_registration_form_plainPassword_first" name="password" required="required"    placeholder="Password" />
+		      	</div>
+		      	<div class="large-6 columns">
+		        	<!--<input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required"    placeholder="Confirm Password" />-->
+		        	<input type="text" id="fos_user_registration_form_plainPassword_second" name="coupon" placeholder="Coupon Code (Optional)">
+		      	</div>
+		    	<div class="large-6 columns terms">
+		    		By clicking Create Account you are indicating that you have read and agree to the <strong>Terms & Conditions</strong>
+		    	</div>
+		    	<div class="large-6 columns submit">
+		    		<input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="61ac1d89a0f9222cbdf9bf7c54541039c927d275" />
+		    		<input type="submit" value="Create an account and ask" class="bbutton"/>
+		    	</div>
+		    </div>
+		</div>
+		<?php echo form_close()."\n";?>
     
-    	<div id="intro" class="v1">
-			<div class="inside">
-			<div class="left">
-				<h1>Instant Math Tutoring</h1>
-				<h2>Connect with a live online tutor, over a beautiful &amp; interactive whiteboard, whenever you need help. Your first session is free!</h2>
-			<?php echo form_open('usercontroller/register')."\n";?>
-			<p>
-				<input type="text" class="ask" placeholder="Describe what you need help with..." />
-				
-				<input class="bbutton" type="submit" value="Ask" />
+			<script type="text/javascript">
+				  var _gaq = _gaq || [];
+				  var pluginUrl = 
+				 '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+				_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+				  _gaq.push(['_setAccount', 'UA-21399448-5']);
+				  _gaq.push(['_trackPageview']);
+
+				  (function() {
+				    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+
+			</script>    		
+			<p class="seen-on">
+				As seen on: <img src="<?php echo $base_url;?>images/seen_on.png" alt="" />
 			</p>
-			<div id="signup-ask">
-				<div class="head"><a href="#" class="close ask-login-button">x</a><span>Please provide account information in order to continue</span> <a href="#" data-reveal-id="loginModal" class="right ask-login-button">Already have an account</a><div class="clear"></div></div>
-				<div class="row signup-form">
-					<div class="large-6 columns">
-			        	<input type="text" id="fos_user_registration_form_username" name="username" required="required" maxlength="255"    placeholder="Username" />
-			        	
-			      	</div>
-			      	<div class="large-6 columns">
-			        	<input type="email" id="fos_user_registration_form_email" name="email" required="required"    placeholder="E-mail" />
-			        	
-			      	</div>
-			      	<div class="large-6 columns">
-			      		
-			        	<input type="password" id="fos_user_registration_form_plainPassword_first" name="password" required="required"    placeholder="Password" />
-			      	</div>
-			      	<div class="large-6 columns">
-			        	<!--<input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required"    placeholder="Confirm Password" />-->
-			        	<input type="text" id="fos_user_registration_form_plainPassword_second" name="coupon" placeholder="Coupon Code (Optional)">
-			      	</div>
-			    	<div class="large-6 columns terms">
-			    		By clicking Create Account you are indicating that you have read and agree to the <strong>Terms & Conditions</strong>
-			    	</div>
-			    	<div class="large-6 columns submit">
-			    		<input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="61ac1d89a0f9222cbdf9bf7c54541039c927d275" />
-			    		<input type="submit" value="Create an account and ask" />
-			    	</div>
-			    </div>
-			</div>
-			<?php echo form_close()."\n";?>
-	    
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  var pluginUrl = 
- '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-21399448-5']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>    
-    </body>
-</html>				
-				<p class="seen-on">
-					As seen on: <img src="<?php echo $base_url;?>images/seen_on.png" alt="" />
-				</p>
-			</div>
-			<div class="right">
-					<!--<img src="<?php echo $base_url;?>images/video.jpg" alt="" />
-					<span class="play"></span>-->
-					<a href="http://fast.wistia.net/embed/iframe/6311e77c10?autoPlay=true&plugin%5BpostRoll-v1%5D%5Blink%5D=http%3A%2F%2Fwww.rayku.com%2Fregister&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5BbackgroundColor%5D=%23263542&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5Bcolor%5D=%23ffe7c2&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5BfontFamily%5D=Gill%20Sans%2C%20Helvetica%2C%20Arial%2C%20sans-serif&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5BfontSize%5D=36px&plugin%5BpostRoll-v1%5D%5Btext%5D=Register%20for%20free%3Cbr%2F%3Eand%20get%20started%20today&popover=true&version=v1&videoHeight=360&videoWidth=640&volumeControl=true" class="wistia-popover[height=360,width=640] video"><img src="<?php echo $base_url;?>images/video.jpg" alt="" /><script charset="ISO-8859-1" src="http://fast.wistia.com/static/popover-v1.js"></script></a>
-					
+		</div>
+		<div class="right">
+				<!--<img src="<?php echo $base_url;?>images/video.jpg" alt="" />
+				<span class="play"></span>-->
+				<a href="http://fast.wistia.net/embed/iframe/6311e77c10?autoPlay=true&plugin%5BpostRoll-v1%5D%5Blink%5D=http%3A%2F%2Fwww.rayku.com%2Fregister&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5BbackgroundColor%5D=%23263542&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5Bcolor%5D=%23ffe7c2&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5BfontFamily%5D=Gill%20Sans%2C%20Helvetica%2C%20Arial%2C%20sans-serif&plugin%5BpostRoll-v1%5D%5Bstyle%5D%5BfontSize%5D=36px&plugin%5BpostRoll-v1%5D%5Btext%5D=Register%20for%20free%3Cbr%2F%3Eand%20get%20started%20today&popover=true&version=v1&videoHeight=360&videoWidth=640&volumeControl=true" class="wistia-popover[height=360,width=640] video"><img src="<?php echo $base_url;?>images/video.jpg" alt="" /><script charset="ISO-8859-1" src="http://fast.wistia.com/static/popover-v1.js"></script></a>
 				
-			</div>
-			<div class="clear"></div>
+			
+		</div>
+		<div class="clear"></div>
 		</div>
 		<div class="wood">
 			<div class="dust left"></div>
@@ -106,7 +87,7 @@ _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 			<div class="dust right"></div>
 		</div>
 	</div>
-	
+
 	<div id="steps">
 		<div class="inside">
 			<div class="step">
@@ -133,7 +114,7 @@ _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 			<div class="clear"></div>
 		</div>
 	</div>
-	
+
 	<div id="testimonials">
 		<div class="inside">
 			<hgroup>
@@ -200,7 +181,7 @@ _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 			</div>
 		</div>
 	</div>
-	
+
 	<div id="signup">
 		<div class="inside">
 			<hgroup>
@@ -213,59 +194,57 @@ _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 		</div>
 	</div>
 
-	    <footer class="footer">
-    	<div class="inside">
-		<p class="copy left">Copyright 2013 Rayku Corp. All rights reserved | Questions? 1-888-98RAYKU</p>
-		<nav class="right">
-			<a href="/app_dev.php/about">About</a>
-							<a href="/app_dev.php/become-a-tutor">Jobs</a>
-						<a href="/app_dev.php/about#contact">Contact Us</a>
-			<a href="/app_dev.php/legal">Legal</a>
-		</nav>
-		<div class="clear"></div>
+    <footer class="footer">
+		<div class="inside">
+			<p class="copy left">Copyright 2013 Rayku Corp. All rights reserved | Questions? 1-888-98RAYKU</p>
+			<nav class="right">
+				<a href="/app_dev.php/about">About</a>
+								<a href="/app_dev.php/become-a-tutor">Jobs</a>
+							<a href="/app_dev.php/about#contact">Contact Us</a>
+				<a href="/app_dev.php/legal">Legal</a>
+			</nav>
+			<div class="clear"></div>
 		</div>
-    </footer>
-    
-<?php echo $login;?>
-	
-            <script>
-            document.write('<script src=' +
-            ('__proto__' in {} ? '/javascripts/vendor/zepto' : '<?php echo $base_url;?>javascripts/vendor/jquery') +
-            '.js><\/script>')
-        </script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.alerts.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.clearing.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.cookie.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.dropdown.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.forms.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.joyride.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.magellan.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.orbit.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.placeholder.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.reveal.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.section.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.tooltips.js"></script>
-        <script src="<?php echo $base_url;?>javascripts/foundation/foundation.topbar.js"></script>
-        <script>
-            $(document).foundation();
-        </script>
-            
-    <script type="text/javascript">
+	</footer>
 
-  var _gaq = _gaq || [];
-  var pluginUrl = 
- '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-21399448-5']);
-  _gaq.push(['_trackPageview']);
+	<?php echo $login;?>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    <script>
+        document.write('<script src=' +
+        ('__proto__' in {} ? '/javascripts/vendor/zepto' : '<?php echo $base_url;?>javascripts/vendor/jquery') +
+        '.js><\/script>')
+    </script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.alerts.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.clearing.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.cookie.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.dropdown.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.forms.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.joyride.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.magellan.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.orbit.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.placeholder.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.reveal.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.section.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.tooltips.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/foundation/foundation.topbar.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+        
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		var pluginUrl = 
+		'//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+		_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+		_gaq.push(['_setAccount', 'UA-21399448-5']);
+		_gaq.push(['_trackPageview']);
 
-</script>    
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>    
 </body>
 </html>

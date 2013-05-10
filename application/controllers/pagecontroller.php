@@ -24,6 +24,8 @@ class PageController extends CI_Controller {
 		$this->data['title'] = "Rayku";
 		$this->load->model('UserModel');
 		$this->data['isTutor'] = false;
+		$this->data['header'] = $this->load->view('static/header', $this->data, true);
+		$this->data['navigation'] = $this->load->view('static/nav', $this->data, true);
 	}
 	public function index()
 	{
@@ -51,6 +53,11 @@ class PageController extends CI_Controller {
 	{
 			$this->data['login'] = $this->load->view('static/login', $this->data, true);
    			$this->load->view('static/become-a-tutor', $this->data);
+	}
+	public function signup()
+	{
+			$this->data['login'] = $this->load->view('static/login', $this->data, true);
+   			$this->load->view('static/register', $this->data);
 	}
 }
 
