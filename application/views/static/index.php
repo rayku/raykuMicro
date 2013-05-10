@@ -22,7 +22,7 @@
 	            <nav>
 	                <a href="#" class="ask-login-button" data-reveal-id="loginModal">Login</a>
 	                <a href="#" class="signup-user">Signup</a>
-	                <a href="<?php echo $base_url;?>become-a-tutor">Become a Tutor</a>
+	                <a href="<?php echo $base_url;?>become">Become a Tutor</a>
 	            </nav>
 	                </div>
     	</header>
@@ -36,7 +36,7 @@
 			<p>
 				<input type="text" class="ask" placeholder="Describe what you need help with..." />
 				
-				<input type="submit" value="Ask" />
+				<input class="bbutton" type="submit" value="Ask" />
 			</p>
 			<div id="signup-ask">
 				<div class="head"><a href="#" class="close ask-login-button">x</a><span>Please provide account information in order to continue</span> <a href="#" data-reveal-id="loginModal" class="right ask-login-button">Already have an account</a><div class="clear"></div></div>
@@ -226,69 +226,7 @@ _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 		</div>
     </footer>
     
-			<div id="loginModal" class="reveal-modal medium">
-    <div class="row login-modal-header">
-        <img src="<?php echo $base_url;?>images/logo.png" alt="rayku">
-        <a class="close-reveal-modal">&#215;</a>
-    </div>
-    <div class="row login-form">
-        <div class="row login-modal-error">
-            <div class="large-12 columns">
-                <p><strong>Please re-enter your email and password</strong><br>
-                The password you entered is incorrect. Please try again.</p>
-            </div>
-        </div>
-        <?php echo form_open('usercontroller/login')."\n";?>
-        	<input type="hidden" name="_csrf_token" value="a40a7e4afb1efa05cb57de1900d5bd355139ec2c" />        
-            <div class="row">
-                <div class="large-12 columns">
-				    <input type="text" id="email" name="_email" value="" placeholder="E-mail" required="required" class="login-input" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns">
-				    <input type="password" id="password" name="_password" placeholder="Password" required="required"  class="login-input" />
-					<input type="submit" class="abutton login-button" id="_submit" name="_submit" value="Login" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-6 columns remember">
-                    <label for="remember_me" class="remember-checkbox">Remember me</label>
-				    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                </div>
-                <div class="large-6 columns forgot">
-                    <a href="#" class="forgot-password">Forgot your password?</a>
-                </div>
-            </div>
-        <?php echo form_close()."\n";?>
-    </div>
-    <div class="login-modal-divider1">
-    </div>
-    <div class="row forgot-email-form">
-        <form action="" method="post">
-            <div class="row">
-                <div class="large-12 columns">
-                    <label class="login-label">Forgot Password</label>
-                    <input class="login-input" type="text" placeholder="Enter your e-mail and we'll send it along..." required>
-                    <input type="submit" class="abutton submit-button"/>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="login-modal-footer">
-        <div class="copyright">
-            <p>Rayku &copy; 2013</p>
-        </div>
-        <div class="footer-links">
-            <ul>
-                <li><a href=#>Privacy</a></li>
-                <li>/</li>
-                <li><a href=#>Legal</a></li>
-                <li>/</li>
-                <li><a href=#>Help</a></li>
-        </div>
-    </div>
-</div>
+<?php echo $login;?>
 	
             <script>
             document.write('<script src=' +

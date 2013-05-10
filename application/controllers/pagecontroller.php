@@ -43,8 +43,14 @@ class PageController extends CI_Controller {
   			$this->load->view('user/footer', $this->data);
   		}
   		else{
+  			$this->data['login'] = $this->load->view('static/login', $this->data, true);
    			$this->load->view('static/index', $this->data);
   		}
+	}
+	public function become()
+	{
+			$this->data['login'] = $this->load->view('static/login', $this->data, true);
+   			$this->load->view('static/become-a-tutor', $this->data);
 	}
 }
 
