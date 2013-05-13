@@ -8,9 +8,16 @@
     <?php echo link_tag('stylesheets/animation.css')."\n";?>
         
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
     <script src="<?php echo $base_url;?>javascripts/jquery_form/jquery.form.js"></script>
     <script src="<?php echo $base_url;?>javascripts/vendor/custom.modernizr.js"></script>
     <script src="<?php echo $base_url;?>javascripts/global.js" type="text/javascript"></script>
+
+    <script src="<?php echo $base_url;?>javascripts/angular/app.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/angular/controller.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/angular/services.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/angular/directives.js"></script>
+    <script src="<?php echo $base_url;?>javascripts/angular/filters.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,600" rel="stylesheet" type="text/css" />
     <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
     
